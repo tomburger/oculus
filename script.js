@@ -47,6 +47,8 @@ for (let ix = 0; ix < cubeCount; ix++) {
     const z = Math.cos(2 * Math.PI * ix / cubeCount) * diameter;
     cube.position.set(x, 0, z);
     cube.scale.y = height;
+    cube.scale.x = 0.5;
+    cube.rotation.y = 8 * Math.PI * ix / cubeCount;
     cube.castShadow = true;
     scene.add(cube);
     cubes.push(cube);
@@ -58,7 +60,7 @@ let ix = 1;
 let delay = 0;
 let colorIx = 0;
 renderer.setAnimationLoop(function() {
-    if (delay == 10) {
+    if (delay == 5) {
         cubes[ix == 0 ? cubeCount - 1 : ix - 1].scale.y = height * 0.9;
         cubes[ix].scale.y = height * 0.8;
         cubes[ix == cubeCount - 1 ? 0 : ix + 1].scale.y = height * 0.9;
